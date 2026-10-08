@@ -1,0 +1,64 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Multicultural Behavior Stats\n",
+    "## Trust, Risk Taking, and Altruism Across Countries\n",
+    "\n",
+    "**Team Lead:** Vaibhava Rajesh  \n",
+    "**Dataset:** Global Preferences Survey (GPS)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Introduction\n",
+    "The Global Preferences Survey measures core economic and psychological traits across tens of thousands of people in dozens of countries. This report looks at how different conditions relate to trust around the world, using three hypotheses:\n",
+    "\n",
+    "1. **Language diversity:** Countries where more languages are spoken will have lower trust scores. Multilingual countries may face more language barriers, which can make information harder to interpret and trust.\n",
+    "2. **Risk taking:** Higher trust is correlated with higher risk taking. People who trust others more may be more willing to take risks.\n",
+    "3. **Altruism:** People with higher trust scores will have higher altruism scores than people with lower trust scores.\n",
+    "\n",
+    "Together, these lead to the research question: **How do structural factors, such as linguistic diversity, and individual traits, such as risk taking and altruism, relate to variations in trust across countries?**"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Data Description\n",
+    "Risk taking, trust, and altruism are standardized scores, so each has a mean of about 0 and a standard deviation of about 1.\n",
+    "\n",
+    "| Variable | Mean | Median | Std. Dev. |\n",
+    "|---|---|---|---|\n",
+    "| Risk taking | ≈ 0 | -0.047 | ≈ 1 |\n",
+    "| Trust | ≈ 0 | -0.144 | ≈ 1 |\n",
+    "| Altruism | ≈ 0 | 0.035 | ≈ 1 |\n",
+    "\n",
+    "Language is a categorical variable, so it is summarized with frequency counts. The dataset includes 82 languages. The most common are Spanish (11,004), English (7,500), Arabic (6,114), Russian (3,426), and German (2,657)."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "import numpy as np\n",
+    "import matplotlib.pyplot as plt\n",
+    "import seaborn as sns\n",
+    "from scipy import stats\n",
+    "\n",
+    "# Update this path to wherever gps_data.csv is saved\n",
+    "DATA_PATH = \"gps_data.csv\"\n",
+    "gl_df = pd.read_csv(DATA_PATH)\n",
+    "\n",
+    "# Summary statistics for the three standardized traits\n",
+    "for col in [\"risktaking\", \"trust\", \"altruism\"]:\n",
+    "    print(f\"{col}: mean={gl_df[col].mean():.3f}, median={gl_df[col].median():.3f}, std={gl_df[col].std():.3f}\")\n",
+    "\n",
+    "# Language is categorical, so
