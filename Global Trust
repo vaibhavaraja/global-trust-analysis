@@ -61,4 +61,4 @@
     "for col in [\"risktaking\", \"trust\", \"altruism\"]:\n",
     "    print(f\"{col}: mean={gl_df[col].mean():.3f}, median={gl_df[col].median():.3f}, std={gl_df[col].std():.3f}\")\n",
     "\n",
-    "# Language is categorical, so
+   
