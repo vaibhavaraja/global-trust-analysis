@@ -1,0 +1,45 @@
+# Global Trust Analysis
+
+**How do language diversity, risk taking, and altruism relate to trust around the world?**
+
+A research project using the [Global Preferences Survey](https://www.briq-institute.org/global-preferences/home) (GPS) from the briq Institute. The GPS measures economic and social preferences, including trust, risk taking, and altruism, for roughly 80,000 people across 76 countries.
+
+## Research Question
+How do **structural factors**, like a country's linguistic diversity, and **individual traits**, like risk taking and altruism, relate to differences in trust across countries?
+
+## Hypotheses
+1. **H1:** Countries where more languages are spoken have lower trust.
+2. **H2:** Higher trust is correlated with higher risk taking.
+3. **H3:** People with higher trust also show higher altruism.
+
+## Methods
+- **H1:** Aggregated responses to the country level, counted the languages spoken in each country, and compared mean trust in single-language countries (n = 49) and multilingual countries (n = 27) with an independent samples t-test.
+- **H2:** Computed the Pearson correlation between trust and risk taking, and visualized risk taking across trust levels with boxplots.
+- **H3:** Split respondents at the median trust score into high- and low-trust groups, then compared their altruism with boxplots, group means, and the overall correlation.
+
+## Findings
+| Hypothesis | Result | Evidence |
+|---|---|---|
+| H1: Language diversity | ✅ Supported | Multilingual countries had lower mean trust (−0.105 vs. 0.039); t = 2.16, p = 0.034 |
+| H2: Risk taking | ❌ Not supported | Almost no relationship; r = 0.036 |
+| H3: Altruism | ✅ Supported | The high-trust group had higher mean altruism (0.144 vs. −0.122); r = 0.168 |
+
+**Takeaway:** Trust tracks prosocial behavior like altruism much more closely than it tracks risk taking. Linguistic diversity also appears to matter at the country level. All of these effects are modest, and the results are correlational, not causal.
+
+## Repository Contents
+- `Multicultural_Behavior_Stats.ipynb`: the full analysis, including data description, all three hypothesis tests, visualizations, and conclusions
+
+## How to Run
+1. Request access to and download the GPS dataset from the briq Institute. The raw data is not included in this repo.
+2. Install dependencies:
+   `pip install pandas numpy matplotlib seaborn scipy jupyter`
+3. Open the notebook, set `DATA_PATH` to your copy of `gps_data.csv`, and run all cells.
+
+## Tools
+Python · pandas · NumPy · matplotlib · seaborn · SciPy · Jupyter
+
+## Credits
+Project led by **Vaibhava Rajesh**, with contributions from Amelia Fischer and Bonnie Yuan.
+
+## Data Citation
+Falk, A., Becker, A., Dohmen, T., Enke, B., Huffman, D., & Sunde, U. (2018). Global Evidence on Economic Preferences. *Quarterly Journal of Economics*, 133(4), 1645–1692.
